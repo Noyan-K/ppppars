@@ -334,15 +334,15 @@ async function main() {
   const file = await workBook.xlsx.readFile(path.join(__dirname, "../", "vendor", "xerox.xlsx"));
 
   for (let sheetId = 3; sheetId < 5; sheetId++) {
-    parser2(file.worksheets[sheetId]);
+    await parser2(file.worksheets[sheetId]);
   }
 
   for (let sheetId = 4; sheetId < file.worksheets.rowCount; sheetId++) {
-    parser5(file.worksheets[sheetId]);
+    await parser5(file.worksheets[sheetId]);
   }
 
-  parser();
-  parser4(file.getWorksheet('Office Software'));
+  await parser();
+  await parser4(file.getWorksheet('Office Software'));
 }
 
 main();
